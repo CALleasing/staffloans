@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/staffloans/static/css/main.e114e1b9.css",
+    "main.js": "/staffloans/static/js/main.38618c4c.js",
+    "static/js/787.ab4db2c4.chunk.js": "/staffloans/static/js/787.ab4db2c4.chunk.js",
+    "index.html": "/staffloans/index.html",
+    "main.e114e1b9.css.map": "/staffloans/static/css/main.e114e1b9.css.map",
+    "main.38618c4c.js.map": "/staffloans/static/js/main.38618c4c.js.map",
+    "787.ab4db2c4.chunk.js.map": "/staffloans/static/js/787.ab4db2c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e114e1b9.css",
+    "static/js/main.38618c4c.js"
+  ]
+}
