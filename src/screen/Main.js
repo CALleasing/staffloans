@@ -31,8 +31,8 @@ const Main = () => {
 
                     :
                     <div style={{ flexDirection: 'row', display: 'flex', alignItems: 'center' }}>
-                    <Paragraph style={{ fontWeight: 'bold', fontSize: 12, padding: 8, color: 'white', backgroundColor: 'green', borderRadius: 10 }}>ติดต่อแล้ว</Paragraph>
-                    <ToolOutlined style={{ color: 'red', marginLeft: 10 }}
+                        <Paragraph style={{ fontWeight: 'bold', fontSize: 12, padding: 8, color: 'white', backgroundColor: 'green', borderRadius: 10 }}>ติดต่อแล้ว</Paragraph>
+                        <ToolOutlined style={{ color: 'red', marginLeft: 10 }}
                             onClick={() => {
                                 showModal();
                                 console.log(record.id)
@@ -72,6 +72,21 @@ const Main = () => {
             title: 'หมายเหตุ',
             dataIndex: 'detail'
         },
+        {
+            key: '8',
+            title: 'พนักงานการตลาด',
+            dataIndex: 'CODE',
+            render: (item, record) => (<>{
+                // console.log(record)
+                item !== null ?
+                    <Paragraph style={{ fontWeight: 'bold', }}>{record.NAME} ({record.NIKNAME}) - {record.LOCAT}</Paragraph>
+                    :
+                    record.sale_id !== '' ?
+                    <Paragraph style={{ fontWeight: 'bold', }}>{record.sale_id}</Paragraph> :
+                    <Paragraph style={{ fontWeight: 'bold', }}>-</Paragraph> 
+            }
+            </>)
+        },
     ]
 
     // const MAIN_URL = 'http://localhost:8080';
@@ -97,21 +112,21 @@ const Main = () => {
     const updateStatus = async () => {
         const data = {
             status: value,
-          }
-          console.log(data)
-          await axios.put(MAIN_URL + '/customer/applyloan/' + id, data)
+        }
+        console.log(data)
+        await axios.put(MAIN_URL + '/customer/applyloan/' + id, data)
             .then((response) => {
-              if (response.status === 201) {
-                getAllApplyLoan();
-                setValue(0);
-              } else {
-                getAllApplyLoan();
-                setValue(0);
-              }
+                if (response.status === 201) {
+                    getAllApplyLoan();
+                    setValue(0);
+                } else {
+                    getAllApplyLoan();
+                    setValue(0);
+                }
             }).catch(err => {
-            //   setConfirmLoading(false);
-            //   setVisible(false);
-            //   setVisibleError(true);
+                //   setConfirmLoading(false);
+                //   setVisible(false);
+                //   setVisibleError(true);
             });
     }
 
@@ -120,7 +135,7 @@ const Main = () => {
     };
 
     const handleOk = () => {
-     
+
         updateStatus()
         setIsModalVisible(false);
     };
